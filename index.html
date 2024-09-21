@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="script.js"> </script>
+</head>
+<body>
+  <p>Rock Paper Scissor Game--!</p>
+  <button onclick="
+    playTheGame('rock');
+  ">ROCK</button>
+  <button onclick="
+    playTheGame('paper');
+  ">PAPER</button>
+  <button onclick="
+    playTheGame('scissor');
+  ">SCISSOR</button>
+  <button>RESET SCORES</button>
+  <script>
+    function playTheGame(object){
+      let computerMove = robotMove();
+      let result = '';
+
+      if(object === 'rock'){
+        if(computerMove === 'rock'){
+        result = 'You tie';
+      }
+
+      else if(computerMove === 'paper'){
+        result = 'You lose';
+      }
+
+      else {
+        result = 'You win';
+      }
+      }
+      
+      else if(object === 'paper'){
+        if(computerMove === 'scissor'){
+        result = 'You loss';
+      }
+
+      else if(computerMove === 'paper'){
+        result = 'You tie';
+      }
+
+      else {
+        result = 'You win';
+      }
+      }
+
+      else{
+        if(computerMove === 'scissor'){
+        result = 'You tie';
+      }
+
+      else if(computerMove === 'paper'){
+        result = 'You win';
+      }
+
+      else {
+        result = 'You loss';
+      }
+      }
+      
+      alert(`You picked ${object}. Computer picked ${computerMove}.${result}`);
+    }
+
+    function robotMove(){
+      let randomNum = Math.random();
+      let computerMove = '';
+      if(randomNum>=0 && randomNum < 1/3){
+        computerMove = 'rock';
+      }
+
+      else if(randomNum > 1/3 && randomNum <= 2/3){
+        computerMove = 'scissor';
+      }
+
+      else{
+        computerMove = 'paper';
+      }
+
+      return computerMove;
+    }
+  
+   
+  </script>
+</body>
+</html>
